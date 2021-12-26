@@ -11,7 +11,7 @@ N_list = []
 for i in range(9):
     N = int(input())
     N_list += [N]
-N_max = max(N_list)a
+N_max = max(N_list)
 print(N_max)
 print(N_list.index(N_max) + 1)
 
