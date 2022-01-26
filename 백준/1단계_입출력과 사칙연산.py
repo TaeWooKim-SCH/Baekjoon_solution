@@ -51,6 +51,14 @@ print(int(a / b))
 print(a % b)
 
 
+# 10926: ??!
+print(input() + '??!')
+
+
+# 18108: 1998년생인 내가 태국에서는 2541년생?!
+print(int(input()) - 543)
+
+
 # 10430: 나머지
 a, b, c = map(int,input().split())
 print((a + b) % c)
