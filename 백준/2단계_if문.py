@@ -60,3 +60,43 @@ if 0 <= H <= 23 and 0 <= M <= 59 :
         elif H == 0 :
             print(H + 23, 60 + (M - 45))
 
+
+# 2525: 오븐 시계
+A, B = map(int, input().split(" "))
+C = int(input())
+while True:
+    if B + C >= 60:
+        A += 1
+        if A == 24:
+            A = 0
+        C -= (60 - B)
+        B = 0
+        if C == 0:
+            print(A, B)
+            break
+    else:
+        B += C
+        C = 0
+        print(A, B)
+        break
+
+
+# 2480: 주사위 세개
+D1, D2, D3 = map(int, input().split(" "))
+money = 0
+    # 규칙 1번
+if D1 == D2 == D3:
+    money += 10000 + D1 * 1000
+    # 규칙 2번
+elif D1 == D2:
+    money += 1000 + D1 * 100
+elif D2 == D3:
+    money += 1000 + D2 * 100
+elif D1 == D3:
+    money += 1000 + D3 * 100
+    # 규칙 3번
+elif D1 != D2 != D3:
+    dice_max = max([D1, D2, D3])
+    money += dice_max * 100
+print(money)
+
