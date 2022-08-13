@@ -59,6 +59,12 @@ print(input() + '??!')
 print(int(input()) - 543)
 
 
+# 3003: 킹, 퀸, 룩, 비숍, 나이트, 폰
+king, quen, look, bishop, night, pon = map(int, input().split())
+print(1 - king, 1 - quen, 2 - look, 2 - bishop, 2 - night, 8 - pon)
+
+
+
 # 10430: 나머지
 a, b, c = map(int,input().split())
 print((a + b) % c)
@@ -78,3 +84,12 @@ print(c)
 print(d)
 print(f)
 print(g)
+
+
+# 25083: 새싹
+print("         ,r\'\"7 ")
+print("r`-_   ,'  ,/")
+print(" \. \". L_r'")
+print("   `~\/")
+print("      |")
+print("      |")
