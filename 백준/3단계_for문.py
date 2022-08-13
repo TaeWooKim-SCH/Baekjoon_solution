@@ -20,6 +20,21 @@ for x in range(0, num + 1) :
 print(y)
 
 
+# 25304: 영수증
+X = int(input())
+N = int(input())
+thing_list = []
+sum = 0
+for i in range(N):
+     thing_list.append(list(map(int, input().split())))
+for a, b in thing_list:
+    sum += a * b
+if sum == X:
+    print("Yes")
+else:
+    print("No")
+
+
 # 15552: 빠른 A + B
 import sys
 T = int(sys.stdin.readline())
