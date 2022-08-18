@@ -34,6 +34,13 @@ counting_sort(N)
 
 
 
+# 25305: 커트라인
+N, k = map(int, input().split())
+x_list = sorted(list(map(int, input().split())))
+print(x_list[-k])
+
+
+
 # 2108: 통계학
 def statistics(n):
     # 변수 설정
@@ -171,3 +178,4 @@ def loc_press(n):
         print(loc_dic[i], end = ' ')
 N = int(sys.stdin.readline())
 loc_press(N)
+
