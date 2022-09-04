@@ -79,3 +79,23 @@ print(len(inter))
 for i in sorted(inter):
     print(i)
 
+
+# 1269: 대칭 차집합
+import sys
+A, B = map(int, sys.stdin.readline().split())
+A_set = set(map(int, sys.stdin.readline().split()))
+B_set = set(map(int, sys.stdin.readline().split()))
+A_differ = A_set - B_set
+B_differ = B_set - A_set
+print(len(A_differ) + len(B_differ))
+
+
+# 11478: 서로 다른 부분 문자열의 개수
+import sys
+S = sys.stdin.readline().strip() # 입력받기
+S_subset = set() # 부분집합
+for i in range(len(S)):
+    for x in range(len(S) + 1):
+        if S[i:x] != "": # 공집합 제거
+            S_subset.add(S[i:x]) # 슬라이싱으로 모든 경우의 수 더하기
+print(len(S_subset))
