@@ -57,7 +57,7 @@ for i in range(6):
     elif (direc == 1) or (direc == 2):
         width_list.append(length)
 
-# 안쪽 부분 면적(2-4, 3-2, 1-3, 4-1)
+    # 안쪽 부분 면적(2-4, 3-2, 1-3, 4-1)
 for i in range(5):
     if direc_list[i][0] == 1:
         if direc_list[i + 1][0] == 3:
@@ -72,13 +72,12 @@ for i in range(5):
         if direc_list[i + 1][0] == 1:
             inside = direc_list[i][1] * direc_list[i + 1][1]
 
-# 시작과 끝이 안쪽 면적일때        
+    # 시작과 끝이 안쪽 면적일때        
 if inside == 0: 
     inside = direc_list[0][1] * direc_list[-1][1]
             
 outside = max(vertical_list) * max(width_list) # 밭의 바깥 부분 면적
 print((outside - inside) * K)
-
 
 
 
@@ -102,3 +101,43 @@ for _ in range(T):
         print(2)
     else:
         print(0) # 그 외에
+
+
+# 1004: 어린 왕자
+from math import sqrt
+import sys
+T = int(sys.stdin.readline()) # 테스트 케이스
+for i in range(T):
+    x1, y1, x2, y2 = map(int, sys.stdin.readline().split())
+    n = int(sys.stdin.readline()) # 행성계의 개수
+    count = 0 # 진입/이탈 횟수
+    for x in range(n):
+        cx, cy, r = map(int, sys.stdin.readline().split()) # 원의 중점 좌표와 반지름
+        if sqrt((cx - x1) ** 2 + (cy - y1) ** 2) < r: # 출발점이 원 안에 있을 때
+            if sqrt((cx - x2) ** 2 + (cy - y2) ** 2) > r: # 도착점이 원 바깥에 있을 때
+                count += 1
+        elif sqrt((cx - x1) ** 2 + (cy - y1) ** 2) > r: # 출발점이 원 바깥에 있을 때
+            if sqrt((cx - x2) ** 2 + (cy - y2) ** 2) < r: # 도착점이 원 안에 있을 때
+                count += 1
+    print(count)
+
+
+# 1358: 하키
+from math import sqrt
+import sys
+W, H, X, Y, P = map(int, sys.stdin.readline().split())
+r = H // 2
+count = 0 # 링크 안에 있는 선수의 수
+for i in range(P):
+    Px, Py = map(int, sys.stdin.readline().split())
+    if Px < X: # 선수의 위치가 왼쪽 반원 위치일 때
+        if sqrt((X - Px) ** 2 + ((Y + r) - Py) ** 2) <= r:
+            count += 1
+    elif Px >= X and Px <= (X + W): # 선수의 위치가 가운데 직사각형 위치일 때
+        if Py >= Y and Py <= (Y + H):
+            count += 1
+    elif Px > (X + W): # 선수의 위치가 오른쪽 반원 위치일 때
+        if sqrt(((X + W) - Px) ** 2 + ((Y + r) - Py) ** 2) <= r:
+            count += 1
+print(count)
+
