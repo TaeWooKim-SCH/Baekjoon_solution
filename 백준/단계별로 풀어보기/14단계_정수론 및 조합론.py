@@ -11,3 +11,14 @@ while True:
             print("multiple")
         else:
             print("neither")
+
+
+# 1037: 약수
+import sys
+N_count = int(sys.stdin.readline())
+N_set = sorted(map(int, sys.stdin.readline().split())) # 오름차순 정렬
+if N_count == 1: # 제곱수일 때
+    print(N_set[0] ** 2)
+else: # 그 외 전부
+    print(N_set[0] * N_set[-1])
+        
