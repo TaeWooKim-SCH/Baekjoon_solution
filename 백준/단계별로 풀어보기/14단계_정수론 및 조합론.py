@@ -97,15 +97,19 @@
 # 2981: 검문
 import sys
 N = int(sys.stdin.readline())
-paper_N_set = set()
+paper_set = set()
+answer = set()
 for i in range(N):
     paper_N = int(sys.stdin.readline())
-    paper_N_set.add(paper_N)
-i = 2
-for x in paper_N_set:
-    remain = 1
-    while i <= max(paper_N_set):
-        if x % i == remain
+    paper_set.add(paper_N)
+for i in range(2, min(paper_set)):
+    remain_set = set()
+    for x in paper_set:
+        remain_set.add(x % i)
+    if len(remain_set) == 1:
+        answer.add(i)
+print(' '.join(map(str, sorted(answer))))
+
 
 
 
