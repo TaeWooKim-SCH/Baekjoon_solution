@@ -94,7 +94,7 @@
 #     print(C * D // gcf)
 
 
-# 2981: 검문
+# # 2981: 검문
 #     # 방법1: 시간초과
 # import sys
 # N = int(sys.stdin.readline())
@@ -122,17 +122,17 @@ N = int(sys.stdin.readline())
 paper_N = sorted([int(sys.stdin.readline()) for i in range(N)])
 num_list = []
 for i in range(1, N):
-    num_list.append(paper_N[-i] - paper_N[-(i + 1)])
+    num_list.append(paper_N[i] - paper_N[i - 1])
 
 A = num_list[0]
-for i in range(1, len(num_list)):
+for i in range(1, len(num_list) - 1):
     B = num_list[i]
     C ,D = A, B # 나중에 A와 B가 바뀌게 됨을 대비한 값 저장
     while B > 0:
         A = A % B
         A, B = B, A
     gcf = A
-print(gcf)
+    print(gcf)
 
 
 # # 3036: 링
@@ -147,6 +147,10 @@ print(gcf)
 #         A, B = B, A
 #     gcf = A
 #     print(str(D // A) + "/" + str(C // A))
+
+
+# 11050: 이항 계수 1
+
 
 
 
